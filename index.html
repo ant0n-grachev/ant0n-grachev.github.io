@@ -225,6 +225,8 @@
     <script>
       function downloadPDF() {
         const element = document.querySelector('.container');
+        const noPrintElements = document.querySelectorAll('.no-print');
+        noPrintElements.forEach(el => el.style.display = 'none');
         const opt = {
           margin: 0.3,
           filename: 'Anton_Grachev_Resume.pdf',
@@ -241,7 +243,10 @@
             orientation: 'portrait'
           }
         };
-        html2pdf().set(opt).from(element).save();
+        html2pdf().set(opt).from(element).save().then(() => {
+          // Restore elements after PDF is generated
+          noPrintElements.forEach(el => el.style.display = '');
+        });
       }
     </script>
   </body>
