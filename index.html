@@ -94,15 +94,34 @@
   <body>
     <div class="container">
       <div class="header">
-        <img src="your-photo.png" alt="Anton Grachev Photo">
+        <img src="assets/anton.png" alt="Anton Grachev Photo">
         <div>
           <h1>Anton Grachev</h1>
-          <p>San Francisco Bay Area, CA | <a href="mailto:anton@grachev.us">anton@grachev.us</a> | (650) 684-4048 </p>
+          <p>San Francisco Bay Area, CA </p>
           <p>
-            <a href="https://www.linkedin.com/in/anton-grachev" target="_blank">LinkedIn</a> | <a href="https://github.com/ant0n-grachev" target="_blank">GitHub</a>
+            <a href="mailto:anton@grachev.us">anton@grachev.us</a> | (650) 684-4048 | <a href="https://www.linkedin.com/in/anton-grachev" target="_blank">LinkedIn</a> | <a href="https://github.com/ant0n-grachev" target="_blank">GitHub</a>
           </p>
-          <div class="no-print">
-            <button onclick="downloadPDF()" style="margin-top: 10px; padding: 10px 20px; background-color: #0077cc; color: white; border: none; border-radius: 6px; cursor: pointer;"> Download Resume as PDF </button>
+          <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; margin-bottom: 24px;">
+            <div style="width: 90px; text-align: center; border: 1px solid #ddd; border-radius: 12px; padding: 10px;">
+              <img src="assets/python.png" alt="Python" title="Python" style="height: 56px; width: 56px; border-radius: 50%; object-fit: cover;">
+              <div style="margin-top: 8px; font-size: 0.9em;">Python</div>
+            </div>
+            <div style="width: 90px; text-align: center; border: 1px solid #ddd; border-radius: 12px; padding: 10px;">
+              <img src="assets/cpp.png" alt="C++" title="C++" style="height: 56px; width: 56px; border-radius: 50%; object-fit: cover;">
+              <div style="margin-top: 8px; font-size: 0.9em;">C++</div>
+            </div>
+            <div style="width: 90px; text-align: center; border: 1px solid #ddd; border-radius: 12px; padding: 10px;">
+              <img src="assets/golang.png" alt="Go" title="Go" style="height: 56px; width: 56px; border-radius: 50%; object-fit: cover;">
+              <div style="margin-top: 8px; font-size: 0.9em;">Go</div>
+            </div>
+            <div style="width: 90px; text-align: center; border: 1px solid #ddd; border-radius: 12px; padding: 10px;">
+              <img src="assets/java.png" alt="Java" title="Java" style="height: 56px; width: 56px; border-radius: 50%; object-fit: cover;">
+              <div style="margin-top: 8px; font-size: 0.9em;">Java</div>
+            </div>
+            <div style="width: 90px; text-align: center; border: 1px solid #ddd; border-radius: 12px; padding: 10px;">
+              <img src="assets/csharp.png" alt="C#" title="C#" style="height: 56px; width: 56px; border-radius: 50%; object-fit: cover;">
+              <div style="margin-top: 8px; font-size: 0.9em;">C#</div>
+            </div>
           </div>
         </div>
       </div>
@@ -112,7 +131,12 @@
       </div>
       <div class="section">
         <h2>Professional Experience</h2>
-        <h3>Backend Engineer Intern, Avito Tech LLC, Moscow (Jun - Sep 2024)</h3>
+        <div>
+          <a href="https://www.avito.ru" target="_blank">
+            <img src="assets/avito.svg" alt="Avito Logo" style="height: 40px; margin-bottom: 10px;">
+          </a>
+        </div>
+        <h3> Backend Engineer Intern, Avito Tech LLC, Moscow (Jun - Sep 2024)</h3>
         <p>
           <a href="https://www.similarweb.com/top-websites/e-commerce-and-shopping/classifieds/" target="_blank" class="external">Avito is the #1 classified ads platform in the world, serving tens of millions of users daily.</a>
         </p>
@@ -137,6 +161,11 @@
       </div>
       <div class="section">
         <h2>Education</h2>
+        <div>
+          <a href="https://www.ucsc.edu" target="_blank">
+            <img src="assets/ucsc.png" alt="UCSC Logo" style="height: 40px; margin-bottom: 10px;">
+          </a>
+        </div>
         <h3>University of California, Santa Cruz</h3>
         <p>
           <strong>B.S. in Computer Science</strong>, Expected 2028
@@ -150,116 +179,120 @@
           </li>
           <li>Key coursework: C, Python, ML, Assembly, Discrete Math</li>
         </ul>
-        <h3>Bishop Montgomery High School</h3>
-        <p>
-          <strong>High School Diploma</strong>, 2024
-        </p>
-        <ul>
-          <li>GPA: 3.88 + George Montgomery Scholar</li>
-          <li>ASB Commissioner of Communications</li>
-          <li>Founder, Badminton Club</li>
-        </ul>
-      </div>
-      <div class="section">
-        <h2>Projects</h2>
-        <h3>Park-a-Slug - Automated Parking Systems (Team Lead, Sep 2024 - March 2025)</h3>
-        <ul>
-          <li>Led a team of 3 in the Google Developer Student Club on building a smart parking web app for UCSC.</li>
-          <li>Implemented backend infrastructure using PostgreSQL and Python Flask for data logging and analytics.</li>
-          <li>Developed license plate recognition using Raspberry Pi and OpenCV in C++.</li>
-          <li>Trained machine learning models to predict parking lot availability based on user patterns.</li>
-          <li>Built real-time user interface with rating and reporting features (HTML/CSS/JavaScript).</li>
-        </ul>
-        <h3>Smart Access System (Solo Capstone Project, Sep 2021 - Dec 2021)</h3>
-        <ul>
-          <li>Designed a secure building access system controlled via Telegram using Python and AIOGram.</li>
-          <li>Implemented temporary QR code generation and validation for authorized entry with user photo capture.</li>
-          <li>Used PostgreSQL to store user credentials and access logs; full technical documentation provided.</li>
-          <li>Deployed and donated the working system to my high school; received top evaluation grade.</li>
-        </ul>
-        <h3>Russian Ethnical Dictionary App (Solo Developer, 2017 - 2020)</h3>
-        <ul>
-          <li>Developed an Android app using MIT App Inventor connected to Firebase for dynamic content delivery.</li>
-          <li>Displayed historical and cultural meanings of ethnic terms in Russian society for young audiences.</li>
-          <li>Presented and won 1st prize in "Most Innovative App" at the Moscow Project Competition (age 12).</li>
-          <li>Maintained on Google Play for 3 years with 100K+ downloads; user feedback integrated in updates.</li>
-        </ul>
-        <p>
-          <em>The source code for the above projects is no longer recoverable. Visit my <a href="https://github.com/ant0n-grachev" target="_blank">GitHub</a> for recent code samples and templates.</em>
-        </p>
-      </div>
-      <div class="section">
-        <h2>Certifications</h2>
-        <ul>
-          <li>
-            <strong>
-              <a href="https://coursera.org/share/499bc5166529d559dbefbec0e31b7d7c" target="_blank" class="external"> Stanford: Supervised Machine Learning (2025) </a>
-            </strong>
-            <br> Built regression and classification models using Python, NumPy, and scikit-learn. <br> Applied gradient descent and regularization.
-          </li>
-          <li>
-            <strong>Moscow Programming School: Full CS Training (2022)</strong>
-            <br> Four-year track in C++, Python, and Java. <br> Final project: Django-based social data analytics platform (received top evaluation grade).
-          </li>
-        </ul>
-      </div>
-      <div class="section">
-        <h2>Skills</h2>
-        <ul>
-          <li>
-            <strong>Programming Languages:</strong> Python, C++, Go, Java, C#
-          </li>
-          <li>
-            <strong>Tools:</strong> Django, PostgreSQL, Docker, Git, Kubernetes
-          </li>
-          <li>
-            <strong>Development Areas:</strong> Machine Learning, Backend Development, Data Analysis, API Design
-          </li>
-          <li>
-            <strong>Soft Skills:</strong> Scrum, Leadership, Teamwork
-          </li>
-          <li>
-            <strong>Spoken Languages:</strong> English (Fluent), Russian (Native)
-          </li>
-        </ul>
-      </div>
-      <div class="section">
-        <p class="only-print">Recommendation letters are available for download at <a href="https://anton.grachev.us" target="_blank">anton.grachev.us</a>. </p>
-        <div class="no-print">
-          <h2>Recommendation Letters</h2>
-          <button onclick="window.open('avito-recommendation-letter.pdf', '_blank')" style="padding: 10px 20px; background-color: #0077cc; color: white; border: none; border-radius: 6px; cursor: pointer;"> Avito Tech LLC </button>
+        <div>
+          <h3>Bishop Montgomery High School</h3>
+          <p>
+            <strong>High School Diploma</strong>, 2024
+          </p>
+          <ul>
+            <li>GPA: 3.88 + George Montgomery Scholar</li>
+            <li>ASB Commissioner of Communications</li>
+            <li>Founder, Badminton Club</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h2>Projects</h2>
+          <h3>Park-a-Slug - Automated Parking Systems (Team Lead, Sep 2024 - March 2025)</h3>
+          <ul>
+            <li>Led a team of 3 in the Google Developer Student Club on building a smart parking web app for UCSC.</li>
+            <li>Implemented backend infrastructure using PostgreSQL and Python Flask for data logging and analytics.</li>
+            <li>Developed license plate recognition using Raspberry Pi and OpenCV in C++.</li>
+            <li>Trained machine learning models to predict parking lot availability based on user patterns.</li>
+            <li>Built real-time user interface with rating and reporting features (HTML/CSS/JavaScript).</li>
+          </ul>
+          <h3>Smart Access System (Solo Capstone Project, Sep 2021 - Dec 2021)</h3>
+          <ul>
+            <li>Designed a secure building access system controlled via Telegram using Python and AIOGram.</li>
+            <li>Implemented temporary QR code generation and validation for authorized entry with user photo capture.</li>
+            <li>Used PostgreSQL to store user credentials and access logs; full technical documentation provided.</li>
+            <li>Deployed and donated the working system to my high school; received top evaluation grade.</li>
+          </ul>
+          <h3>Russian Ethnical Dictionary App (Solo Developer, 2017 - 2020)</h3>
+          <ul>
+            <li>Developed an Android app using MIT App Inventor connected to Firebase for dynamic content delivery.</li>
+            <li>Displayed historical and cultural meanings of ethnic terms in Russian society for young audiences.</li>
+            <li>Presented and won 1st prize in "Most Innovative App" at the Moscow Project Competition (age 12).</li>
+            <li>Maintained on Google Play for 3 years with 100K+ downloads; user feedback integrated in updates.</li>
+          </ul>
+          <p>
+            <em>The source code for the above projects is no longer recoverable. Visit my <a href="https://github.com/ant0n-grachev" target="_blank">GitHub</a> for recent code samples and templates. </em>
+          </p>
+        </div>
+        <div class="section">
+          <h2>Certifications</h2>
+          <ul>
+            <li>
+              <strong>
+                <a href="https://coursera.org/share/499bc5166529d559dbefbec0e31b7d7c" target="_blank" class="external"> Stanford: Supervised Machine Learning (2025) </a>
+              </strong>
+              <br> Built regression and classification models using Python, NumPy, and scikit-learn. <br> Applied gradient descent and regularization.
+            </li>
+            <li>
+              <strong>Moscow Programming School: Full CS Training (2022)</strong>
+              <br> Four-year track in C++, Python, and Java. <br> Final project: Django-based social data analytics platform (received top evaluation grade).
+            </li>
+          </ul>
+        </div>
+        <div class="section">
+          <h2>Skills</h2>
+          <ul>
+            <li>
+              <strong>Programming Languages:</strong> Python, C++, Go, Java, C#
+            </li>
+            <li>
+              <strong>Tools:</strong> Django, PostgreSQL, Docker, Git, Kubernetes
+            </li>
+            <li>
+              <strong>Development Areas:</strong> Machine Learning, Backend Development, Data Analysis, API Design
+            </li>
+            <li>
+              <strong>Soft Skills:</strong> Scrum, Leadership, Teamwork
+            </li>
+            <li>
+              <strong>Spoken Languages:</strong> English (Fluent), Russian (Native)
+            </li>
+          </ul>
+        </div>
+        <div class="section">
+          <p class="only-print">Recommendation letters are available for download at <a href="https://anton.grachev.us" target="_blank">anton.grachev.us</a>. </p>
+          <div class="no-print">
+            <h2>Recommendation Letters</h2>
+            <button onclick="window.open('letters/avito.pdf', '_blank')" style="padding: 12px 24px; background-color: #0077cc; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1.1em; font-weight: bold;"> Avito Tech LLC </button>
+          </div>
         </div>
       </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <script>
-      function downloadPDF() {
-        const element = document.querySelector('.container');
-        const noPrintElements = document.querySelectorAll('.no-print');
-        const onlyPrintElements = document.querySelectorAll('.only-print');
-        noPrintElements.forEach(el => el.style.display = 'none');
-        onlyPrintElements.forEach(el => el.style.display = 'block');
-        const opt = {
-          margin: 0.3,
-          filename: 'Anton_Grachev_Resume.pdf',
-          image: {
-            type: 'jpeg',
-            quality: 0.98
-          },
-          html2canvas: {
-            scale: 1.5
-          },
-          jsPDF: {
-            unit: 'in',
-            format: 'letter',
-            orientation: 'portrait'
-          }
-        };
-        html2pdf().set(opt).from(element).save().then(() => {
-          noPrintElements.forEach(el => el.style.display = '');
-          onlyPrintElements.forEach(el => el.style.display = 'none');
-        });
-      }
-    </script>
+      <div class="no-print" style="text-align: right; margin: 40px 0 0;">
+        <a href="#" onclick="downloadPDF()" style="color: #0077cc; text-decoration: underline; font-size: 0.95em;"> Download Resume as PDF </a>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+      <script>
+        function downloadPDF() {
+          const element = document.querySelector('.container');
+          const noPrintElements = document.querySelectorAll('.no-print');
+          const onlyPrintElements = document.querySelectorAll('.only-print');
+          noPrintElements.forEach(el => el.style.display = 'none');
+          onlyPrintElements.forEach(el => el.style.display = 'block');
+          const opt = {
+            margin: 0.3,
+            filename: 'Anton_Grachev_Resume.pdf',
+            image: {
+              type: 'jpeg',
+              quality: 0.98
+            },
+            html2canvas: {
+              scale: 1.5
+            },
+            jsPDF: {
+              unit: 'in',
+              format: 'letter',
+              orientation: 'portrait'
+            }
+          };
+          html2pdf().set(opt).from(element).save().then(() => {
+            noPrintElements.forEach(el => el.style.display = '');
+            onlyPrintElements.forEach(el => el.style.display = 'none');
+          });
+        }
+      </script>
   </body>
 </html>
