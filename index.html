@@ -80,6 +80,26 @@
         display: none;
       }
 
+      .education-grid {
+        display: flex;
+        gap: 1.5rem;
+        align-items: stretch;
+      }
+
+      .education-grid .edu-item {
+        flex: 1;
+      }
+
+      .education-grid .edu-item+.edu-item {
+        border-left: 0.05rem solid #eee;
+        padding-left: 1rem;
+      }
+
+      .edu-logo {
+        height: 3rem;
+        width: auto;
+      }
+
       @media print {
         @page {
           size: letter portrait;
@@ -116,6 +136,18 @@
 
         .header img {
           margin-bottom: 1rem;
+        }
+
+        .education-grid {
+          flex-direction: column;
+        }
+
+        .education-grid .edu-item+.edu-item {
+          border-left: none;
+          border-top: 0.05rem solid #eee;
+          padding-left: 0;
+          padding-top: 1rem;
+          margin-top: 1rem;
         }
       }
     </style>
@@ -158,7 +190,7 @@
         <h2>Professional Experience</h2>
         <div>
           <a href="https://www.avito.ru" target="_blank">
-            <img src="assets/avito.svg" alt="Avito Logo" style="height: 40px;">
+            <img src="assets/avito.svg" alt="Avito Logo" class="edu-logo">
           </a>
         </div>
         <h3> Backend Engineer Intern, Avito Tech LLC (Jun - Sep 2024)</h3>
@@ -184,135 +216,140 @@
         <h3>Applied Discrete Math Tutor, UCSC Baskin Engineering (Mar 2025 - Present)</h3>
         <p>Lead group sessions in logic, sets, and proofs; coordinate with course staff.</p>
       </div>
-      <div class="section">
+      <div class="section" id="education">
         <h2>Education</h2>
-        <div>
-          <a href="https://www.ucsc.edu" target="_blank">
-            <img src="assets/ucsc.png" alt="UCSC Logo" style="height: 40px;">
-          </a>
-        </div>
-        <h3>University of California, Santa Cruz</h3>
-        <p>
-          <strong>B.S. in Computer Science</strong>, Expected 2028
-        </p>
-        <ul>
-          <li>GPA: 3.85 + Dean's Honor List</li>
-          <li>Full Stack Engineer @ UCSC Rocket Team: <ul>
-              <li>Embedded firmware (C/C++) and sensor integration</li>
-              <li>Telemetry systems and web dashboard development (HTML/JS)</li>
+        <div class="education-grid">
+          <div class="edu-item">
+            <a href="https://www.ucsc.edu" target="_blank">
+              <img src="assets/ucsc.png" alt="UCSC Logo" class="edu-logo">
+            </a>
+            <h3>University of California, Santa Cruz</h3>
+            <p>
+              <strong>B.S. in Computer Science</strong>, Expected 2028
+            </p>
+            <ul>
+              <li>GPA: 3.85 + Dean's Honor List</li>
+              <li>Full Stack Engineer @ UCSC Rocket Team: <ul>
+                  <li>Embedded firmware (C/C++) and sensor integration</li>
+                  <li>Telemetry systems and web dashboard development (HTML/JS)</li>
+                </ul>
+              </li>
+              <li>Key coursework: C, Python, ML, Assembly, Discrete Math</li>
             </ul>
-          </li>
-          <li>Key coursework: C, Python, ML, Assembly, Discrete Math</li>
-        </ul>
-        <div>
-          <h3>Bishop Montgomery High School</h3>
-          <p>
-            <strong>High School Diploma</strong>, 2024
-          </p>
-          <ul>
-            <li>GPA: 3.88 + George Montgomery Scholar</li>
-            <li>ASB Commissioner of Communications</li>
-            <li>Founder, Badminton Club</li>
-          </ul>
-        </div>
-        <div class="section">
-          <h2>Projects</h2>
-          <h3>Park-a-Slug - Automated Parking Systems (Team Lead, Sep 2024 - March 2025)</h3>
-          <ul>
-            <li>Led a team of 3 in the Google Developer Student Club on building a smart parking web app for UCSC.</li>
-            <li>Implemented backend infrastructure using PostgreSQL and Python Flask for data logging and analytics.</li>
-            <li>Developed license plate recognition using Raspberry Pi and OpenCV in C++.</li>
-            <li>Trained machine learning models to predict parking lot availability based on user patterns.</li>
-            <li>Built real-time user interface with rating and reporting features (HTML/CSS/JavaScript).</li>
-          </ul>
-          <h3>Smart Access System (Solo Capstone Project, Sep 2021 - May 2022)</h3>
-          <ul>
-            <li>Designed a secure building access system controlled via Telegram using Python and AIOGram.</li>
-            <li>Implemented temporary QR code generation and validation for authorized entry with user photo capture.</li>
-            <li>Used PostgreSQL to store user credentials and access logs; full technical documentation provided.</li>
-            <li>Deployed and donated the working system to my high school; received top evaluation grade.</li>
-          </ul>
-          <h3>Russian Ethnical Dictionary App (Solo Developer, 2017 - 2020)</h3>
-          <ul>
-            <li>Developed an Android app using MIT App Inventor connected to Firebase for dynamic content delivery.</li>
-            <li>Displayed historical and cultural meanings of ethnic terms in Russian society for young audiences.</li>
-            <li>Presented and won 1st prize in "Most Innovative App" at the Moscow Project Competition (age 12).</li>
-            <li>Maintained on Google Play for 3 years with 100K+ downloads; user feedback integrated in updates.</li>
-          </ul>
-          <p>
-            <em>The source code for the above projects is no longer recoverable. Visit my <a href="https://github.com/ant0n-grachev" target="_blank">GitHub</a> for recent code samples and templates. </em>
-          </p>
-        </div>
-        <div class="section">
-          <h2>Certifications</h2>
-          <ul>
-            <li>
-              <strong>
-                <a href="https://coursera.org/share/499bc5166529d559dbefbec0e31b7d7c" target="_blank" class="external"> Stanford: Supervised Machine Learning (2025) </a>
-              </strong>
-              <br> Built regression and classification models using Python, NumPy, and scikit-learn. <br> Applied gradient descent and regularization.
-            </li>
-            <li>
-              <strong>Moscow Programming School: Full CS Training (2022)</strong>
-              <br> Four-year track in C++, Python, and Java. <br> Final project: Django-based social data analytics platform (received top evaluation grade).
-            </li>
-          </ul>
-        </div>
-        <div class="section">
-          <h2>Skills</h2>
-          <ul>
-            <li>
-              <strong>Programming Languages:</strong> Python, C, C++, C#, Go, Java
-            </li>
-            <li>
-              <strong>Tools:</strong> Django, PostgreSQL, Docker, Git, Kubernetes
-            </li>
-            <li>
-              <strong>Development Areas:</strong> Machine Learning, Backend Development, Data Analysis, API Design
-            </li>
-            <li>
-              <strong>Soft Skills:</strong> Scrum, Leadership, Teamwork
-            </li>
-            <li>
-              <strong>Spoken Languages:</strong> English (Fluent), Russian (Native)
-            </li>
-          </ul>
-        </div>
-        <div class="section">
-          <p class="only-print">Recommendation letters are available for download at <a href="https://anton.grachev.us" target="_blank">anton.grachev.us</a>. </p>
-          <div class="no-print">
-            <h2>Recommendation Letters</h2>
-            <button onclick="window.open('letters/avito.pdf', '_blank')" style="padding: 12px 24px; background-color: #0077cc; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1.1em; font-weight: bold;"> Avito Tech LLC </button>
           </div>
+          <div class="edu-item">
+            <a href="https://www.bmhs-la.org" target="_blank">
+              <img src="assets/bmhs.png" alt="BMHS Logo" class="edu-logo">
+            </a>
+            <h3>Bishop Montgomery High School</h3>
+            <p>
+              <strong>High School Diploma</strong>, 2024
+            </p>
+            <ul>
+              <li>GPA: 3.88 + George Montgomery Scholar</li>
+              <li>ASB Commissioner of Communications</li>
+              <li>Founder, Badminton Club</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h2>Projects</h2>
+        <h3>Park-a-Slug - Automated Parking Systems (Team Lead, Sep 2024 - March 2025)</h3>
+        <ul>
+          <li>Led a team of 3 in the Google Developer Student Club on building a smart parking web app for UCSC.</li>
+          <li>Implemented backend infrastructure using PostgreSQL and Python Flask for data logging and analytics.</li>
+          <li>Developed license plate recognition using Raspberry Pi and OpenCV in C++.</li>
+          <li>Trained machine learning models to predict parking lot availability based on user patterns.</li>
+          <li>Built real-time user interface with rating and reporting features (HTML/CSS/JavaScript).</li>
+        </ul>
+        <h3>Smart Access System (Solo Capstone Project, Sep 2021 - May 2022)</h3>
+        <ul>
+          <li>Designed a secure building access system controlled via Telegram using Python and AIOGram.</li>
+          <li>Implemented temporary QR code generation and validation for authorized entry with user photo capture.</li>
+          <li>Used PostgreSQL to store user credentials and access logs; full technical documentation provided.</li>
+          <li>Deployed and donated the working system to my high school; received top evaluation grade.</li>
+        </ul>
+        <h3>Russian Ethnical Dictionary App (Solo Developer, 2017 - 2020)</h3>
+        <ul>
+          <li>Developed an Android app using MIT App Inventor connected to Firebase for dynamic content delivery.</li>
+          <li>Displayed historical and cultural meanings of ethnic terms in Russian society for young audiences.</li>
+          <li>Presented and won 1st prize in "Most Innovative App" at the Moscow Project Competition (age 12).</li>
+          <li>Maintained on Google Play for 3 years with 100K+ downloads; user feedback integrated in updates.</li>
+        </ul>
+        <p>
+          <em>The source code for the above projects is no longer recoverable. Visit my <a href="https://github.com/ant0n-grachev" target="_blank">GitHub</a> for recent code samples and templates. </em>
+        </p>
+      </div>
+      <div class="section">
+        <h2>Certifications</h2>
+        <ul>
+          <li>
+            <strong>
+              <a href="https://coursera.org/share/499bc5166529d559dbefbec0e31b7d7c" target="_blank" class="external"> Stanford: Supervised Machine Learning (2025) </a>
+            </strong>
+            <br> Built regression and classification models using Python, NumPy, and scikit-learn. <br> Applied gradient descent and regularization.
+          </li>
+          <li>
+            <strong>Moscow Programming School: Full CS Training (2022)</strong>
+            <br> Four-year track in C++, Python, and Java. <br> Final project: Django-based social data analytics platform (received top evaluation grade).
+          </li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2>Skills</h2>
+        <ul>
+          <li>
+            <strong>Programming Languages:</strong> Python, C, C++, C#, Go, Java
+          </li>
+          <li>
+            <strong>Tools:</strong> Django, PostgreSQL, Docker, Git, Kubernetes
+          </li>
+          <li>
+            <strong>Development Areas:</strong> Machine Learning, Backend Development, Data Analysis, API Design
+          </li>
+          <li>
+            <strong>Soft Skills:</strong> Scrum, Leadership, Teamwork
+          </li>
+          <li>
+            <strong>Spoken Languages:</strong> English (Fluent), Russian (Native)
+          </li>
+        </ul>
+      </div>
+      <div class="section">
+        <p class="only-print">Recommendation letters are available for download at <a href="https://anton.grachev.us" target="_blank">anton.grachev.us</a>. </p>
+        <div class="no-print">
+          <h2>Recommendation Letters</h2>
+          <button onclick="window.open('letters/avito.pdf', '_blank')" style="padding: 12px 24px; background-color: #0077cc; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1.1em; font-weight: bold;"> Avito Tech LLC </button>
         </div>
       </div>
       <div class="no-print" style="text-align: right; margin: 40px 0 0;">
         <a href="#" onclick="printResume(); return false;" style="color: #0077cc; text-decoration: underline; font-size: 0.95em;"> Download Resume as PDF </a>
       </div>
-      <script>
-        function togglePrintClasses(showPrint) {
-          document.querySelectorAll('.no-print').forEach(el => {
-            el.style.display = showPrint ? 'none' : '';
-          });
-          document.querySelectorAll('.only-print').forEach(el => {
-            el.style.display = showPrint ? '' : 'none';
-          });
-        }
-
-        function handleBeforePrint() {
-          togglePrintClasses(true);
-        }
-
-        function handleAfterPrint() {
-          togglePrintClasses(false);
-        }
-        window.addEventListener('beforeprint', handleBeforePrint);
-        window.addEventListener('afterprint', handleAfterPrint);
-
-        function printResume() {
-          window.print();
-        }
-      </script>
     </div>
+    <script>
+      function togglePrintClasses(showPrint) {
+        document.querySelectorAll('.no-print').forEach(el => {
+          el.style.display = showPrint ? 'none' : '';
+        });
+        document.querySelectorAll('.only-print').forEach(el => {
+          el.style.display = showPrint ? '' : 'none';
+        });
+      }
+
+      function handleBeforePrint() {
+        togglePrintClasses(true);
+      }
+
+      function handleAfterPrint() {
+        togglePrintClasses(false);
+      }
+      window.addEventListener('beforeprint', handleBeforePrint);
+      window.addEventListener('afterprint', handleAfterPrint);
+
+      function printResume() {
+        window.print();
+      }
+    </script>
   </body>
 </html>
