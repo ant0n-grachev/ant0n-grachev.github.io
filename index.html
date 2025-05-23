@@ -61,6 +61,24 @@
         color: #0077cc;
         text-decoration: none;
       }
+
+      .no-print {
+        display: block;
+      }
+
+      .only-print {
+        display: none;
+      }
+
+      @media print {
+        .no-print {
+          display: none !important;
+        }
+
+        .only-print {
+          display: block !important;
+        }
+      }
     </style>
   </head>
   <body>
@@ -73,6 +91,9 @@
           <p>
             <a href="https://www.linkedin.com/in/anton-grachev" target="_blank">LinkedIn</a> | <a href="https://github.com/ant0n-grachev" target="_blank">GitHub</a>
           </p>
+          <div class="no-print">
+            <button onclick="downloadPDF()" style="margin-top: 10px; padding: 10px 20px; background-color: #0077cc; color: white; border: none; border-radius: 6px; cursor: pointer;"> Download Resume as PDF </button>
+          </div>
         </div>
       </div>
       <div class="section">
@@ -193,9 +214,35 @@
         </ul>
       </div>
       <div class="section">
-        <h2>Recommendation Letters</h2>
-        <button onclick="window.open('avito-recommendation-letter.pdf', '_blank')" style="padding: 10px 20px; background-color: #0077cc; color: white; border: none; border-radius: 6px; cursor: pointer;"> Avito Tech LLC </button>
+        <p class="only-print">Recommendation letters available on the website <a href="https://anton.grachev.us" target="_blank">anton.grachev.us</a>. </p>
+        <div class="no-print">
+          <h2>Recommendation Letters</h2>
+          <button onclick="window.open('avito-recommendation-letter.pdf', '_blank')" style="padding: 10px 20px; background-color: #0077cc; color: white; border: none; border-radius: 6px; cursor: pointer;"> Avito Tech LLC </button>
+        </div>
       </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+      function downloadPDF() {
+        const element = document.querySelector('.container');
+        const opt = {
+          margin: 0.3,
+          filename: 'Anton_Grachev_Resume.pdf',
+          image: {
+            type: 'jpeg',
+            quality: 0.98
+          },
+          html2canvas: {
+            scale: 2
+          },
+          jsPDF: {
+            unit: 'in',
+            format: 'letter',
+            orientation: 'portrait'
+          }
+        };
+        html2pdf().set(opt).from(element).save();
+      }
+    </script>
   </body>
 </html>
