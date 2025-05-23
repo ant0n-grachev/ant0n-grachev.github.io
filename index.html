@@ -263,34 +263,29 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
       <script>
         function downloadPDF() {
-          const resume = document.querySelector('.container');
-          const noPrintElements = document.querySelectorAll('.no-print');
-          const onlyPrintElements = document.querySelectorAll('.only-print');
-          // Hide non-print elements temporarily
-          noPrintElements.forEach(el => el.style.visibility = 'hidden');
-          onlyPrintElements.forEach(el => el.style.display = 'block');
-          // Clone for export to avoid DOM reflow issues
-          const clone = resume.cloneNode(true);
-          const wrapper = document.createElement('div');
-          wrapper.style.position = 'fixed';
-          wrapper.style.top = '0';
-          wrapper.style.left = '0';
-          wrapper.style.width = '210mm'; // match A4 width
-          wrapper.style.padding = '20px';
-          wrapper.style.background = 'white';
-          wrapper.appendChild(clone);
-          document.body.appendChild(wrapper);
+          // 1. Force all your @media print styles to apply right now
+          Array.from(document.styleSheets).forEach(sheet => {
+            try {
+              if (sheet.media.mediaText === 'print') {
+                sheet.media.mediaText = 'all';
+              }
+            } catch (e) {
+              // some sheets (e.g. cross-origin) may throw — ignore them
+              console.warn('Could not set media on stylesheet', sheet, e);
+            }
+          });
+          // 2. Grab the resume container
+          const element = document.querySelector('.container');
+          // 3. html2pdf options
           const opt = {
-            margin: [0.4, 0.4, 0.6, 0.4], // top, left, bottom, right
-            filename: 'Anton_Grachev_Resume.pdf',
+            margin: [0.5, 0.5, 0.5, 0.5], // inches
+            filename: 'Anton-Grachev-Resume.pdf',
             image: {
               type: 'jpeg',
-              quality: 0.95
+              quality: 0.98
             },
             html2canvas: {
               scale: 2,
-              scrollY: 0,
-              windowWidth: document.body.scrollWidth,
               useCORS: true
             },
             jsPDF: {
@@ -299,10 +294,9 @@
               orientation: 'portrait'
             }
           };
-          html2pdf().set(opt).from(wrapper).save().then(() => {
-            document.body.removeChild(wrapper);
-            noPrintElements.forEach(el => el.style.visibility = 'visible');
-            onlyPrintElements.forEach(el => el.style.display = 'none');
+          // 4. Generate & save PDF
+          html2pdf().set(opt).from(element).save().then(() => {
+            // Optionally, you could revert sheet.media.mediaText back to 'print' here
           });
         }
       </script>
