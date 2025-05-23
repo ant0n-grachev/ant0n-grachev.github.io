@@ -79,6 +79,20 @@
           display: block !important;
         }
       }
+
+      .section,
+      .header,
+      h2,
+      ul,
+      li,
+      p {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .section {
+        margin-bottom: 30px;
+      }
     </style>
   </head>
   <body>
@@ -175,7 +189,7 @@
           <li>Maintained on Google Play for 3 years with 100K+ downloads; user feedback integrated in updates.</li>
         </ul>
         <p>
-          <em>Project source code is no longer recoverable. Visit my <a href="https://github.com/your-github" target="_blank">GitHub</a> for recent code samples and templates. </em>
+          <em>Project source code is no longer recoverable. Visit my <a href="https://github.com/ant0n-grachev" target="_blank">GitHub</a> for recent code samples and templates. </em>
         </p>
       </div>
       <div class="section">
@@ -246,7 +260,6 @@
           }
         };
         html2pdf().set(opt).from(element).save().then(() => {
-          // Restore both sets of elements
           noPrintElements.forEach(el => el.style.display = '');
           onlyPrintElements.forEach(el => el.style.display = 'none');
         });
