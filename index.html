@@ -263,26 +263,34 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
       <script>
         function downloadPDF() {
-          const element = document.querySelector('.container');
+          const resume = document.querySelector('.container');
           const noPrintElements = document.querySelectorAll('.no-print');
           const onlyPrintElements = document.querySelectorAll('.only-print');
+          // Hide non-print elements temporarily
           noPrintElements.forEach(el => el.style.visibility = 'hidden');
           onlyPrintElements.forEach(el => el.style.display = 'block');
-          const clone = element.cloneNode(true);
-          const tempDiv = document.createElement('div');
-          tempDiv.style.position = 'fixed';
-          tempDiv.style.top = '-10000px';
-          tempDiv.appendChild(clone);
-          document.body.appendChild(tempDiv);
+          // Clone for export to avoid DOM reflow issues
+          const clone = resume.cloneNode(true);
+          const wrapper = document.createElement('div');
+          wrapper.style.position = 'fixed';
+          wrapper.style.top = '0';
+          wrapper.style.left = '0';
+          wrapper.style.width = '210mm'; // match A4 width
+          wrapper.style.padding = '20px';
+          wrapper.style.background = 'white';
+          wrapper.appendChild(clone);
+          document.body.appendChild(wrapper);
           const opt = {
-            margin: 0.3,
+            margin: [0.4, 0.4, 0.6, 0.4], // top, left, bottom, right
             filename: 'Anton_Grachev_Resume.pdf',
             image: {
               type: 'jpeg',
-              quality: 0.98
+              quality: 0.95
             },
             html2canvas: {
-              scale: 1.5,
+              scale: 2,
+              scrollY: 0,
+              windowWidth: document.body.scrollWidth,
               useCORS: true
             },
             jsPDF: {
@@ -291,12 +299,13 @@
               orientation: 'portrait'
             }
           };
-          html2pdf().set(opt).from(clone).save().then(() => {
-            document.body.removeChild(tempDiv);
+          html2pdf().set(opt).from(wrapper).save().then(() => {
+            document.body.removeChild(wrapper);
             noPrintElements.forEach(el => el.style.visibility = 'visible');
             onlyPrintElements.forEach(el => el.style.display = 'none');
           });
         }
       </script>
+    </div>
   </body>
 </html>
