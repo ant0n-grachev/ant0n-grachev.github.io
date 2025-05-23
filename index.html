@@ -266,8 +266,14 @@
           const element = document.querySelector('.container');
           const noPrintElements = document.querySelectorAll('.no-print');
           const onlyPrintElements = document.querySelectorAll('.only-print');
-          noPrintElements.forEach(el => el.style.display = 'none');
+          noPrintElements.forEach(el => el.style.visibility = 'hidden');
           onlyPrintElements.forEach(el => el.style.display = 'block');
+          const clone = element.cloneNode(true);
+          const tempDiv = document.createElement('div');
+          tempDiv.style.position = 'fixed';
+          tempDiv.style.top = '-10000px';
+          tempDiv.appendChild(clone);
+          document.body.appendChild(tempDiv);
           const opt = {
             margin: 0.3,
             filename: 'Anton_Grachev_Resume.pdf',
@@ -276,7 +282,8 @@
               quality: 0.98
             },
             html2canvas: {
-              scale: 1.5
+              scale: 1.5,
+              useCORS: true
             },
             jsPDF: {
               unit: 'in',
@@ -284,8 +291,9 @@
               orientation: 'portrait'
             }
           };
-          html2pdf().set(opt).from(element).save().then(() => {
-            noPrintElements.forEach(el => el.style.display = '');
+          html2pdf().set(opt).from(clone).save().then(() => {
+            document.body.removeChild(tempDiv);
+            noPrintElements.forEach(el => el.style.visibility = 'visible');
             onlyPrintElements.forEach(el => el.style.display = 'none');
           });
         }
