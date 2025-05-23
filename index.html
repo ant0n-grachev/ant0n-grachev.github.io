@@ -214,7 +214,7 @@
         </ul>
       </div>
       <div class="section">
-        <p class="only-print">Recommendation letters available on the website <a href="https://anton.grachev.us" target="_blank">anton.grachev.us</a>. </p>
+        <p class="only-print">Recommendation letters are available for download at <a href="https://anton.grachev.us" target="_blank">anton.grachev.us</a>. </p>
         <div class="no-print">
           <h2>Recommendation Letters</h2>
           <button onclick="window.open('avito-recommendation-letter.pdf', '_blank')" style="padding: 10px 20px; background-color: #0077cc; color: white; border: none; border-radius: 6px; cursor: pointer;"> Avito Tech LLC </button>
@@ -226,7 +226,9 @@
       function downloadPDF() {
         const element = document.querySelector('.container');
         const noPrintElements = document.querySelectorAll('.no-print');
+        const onlyPrintElements = document.querySelectorAll('.only-print');
         noPrintElements.forEach(el => el.style.display = 'none');
+        onlyPrintElements.forEach(el => el.style.display = 'block');
         const opt = {
           margin: 0.3,
           filename: 'Anton_Grachev_Resume.pdf',
@@ -244,8 +246,9 @@
           }
         };
         html2pdf().set(opt).from(element).save().then(() => {
-          // Restore elements after PDF is generated
+          // Restore both sets of elements
           noPrintElements.forEach(el => el.style.display = '');
+          onlyPrintElements.forEach(el => el.style.display = 'none');
         });
       }
     </script>
