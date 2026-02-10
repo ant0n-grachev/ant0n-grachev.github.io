@@ -1,498 +1,928 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Anton Grachev</title>
-        <link rel="icon" type="image/x-icon" href="/assets/icon.ico">
-        <link rel="shortcut icon" type="image/x-icon" href="/assets/icon.ico">
-        <style>
-            html {
-            font-size: 100%;
-            }
-            body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #b6000d;
-            font-size: 1rem;
-            line-height: 1.5;
-            }
-            img {
-            max-width: 100%;
-            height: auto;
-            }
-            .container {
-            width: 90%;
-            max-width: 60rem;
-            margin: 2rem auto;
-            padding: 0;
-            }
-            .header {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 1rem;
-            }
-            .header img {
-            width: 12rem;
-            height: auto;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 0;
-            }
-            h1 {
-            margin: 0;
-            font-size: 2rem;
-            }
-            h2 {
-            margin-top: 1rem;
-            border-bottom: 0.2rem solid #eee;
-            padding-bottom: 0.2rem;
-            }
-            .section {
-            margin-bottom: 2rem;
-            }
-            ul {
-            padding-left: 2rem;
-            }
-            a {
-            color: #0077cc;
-            text-decoration: none;
-            }
-            .no-print {
-            display: block;
-            }
-            .only-print {
-            display: none;
-            }
-            .education-grid {
-            display: flex;
-            gap: 1.5rem;
-            align-items: stretch;
-            }
-            .education-grid .edu-item {
-            flex: 1;
-            }
-            .education-grid .edu-item+.edu-item {
-            border-left: 0.05rem solid #eee;
-            padding-left: 1rem;
-            }
-            .edu-logo {
-            height: 3rem;
-            width: auto;
-            }
-            #objective p {
-            max-width: 90ch;
-            }
-            .job-entry {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            }
-            .job-entry h3,
-            .job-entry span {
-            margin: 0.25rem 0;
-            }
-            .job-entry span {
-            font-weight: normal;
-            font-style: italic;
-            }
-            .bubble {
-            background: #fff;
-            border-radius: 1rem;
-            box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.08);
-            padding: 1.5rem;
-            margin-bottom: 1.25rem;
-            border: 1px solid #eee;
-            }
-            .bubble.hero {
-            border: 1px solid #e6e6e6;
-            }
-            @media print {
-            @page {
-            size: letter portrait;
-            margin: 0in;
-            }
-            body {
-            margin: 0;
-            padding: 0;
-            }
-            .container {
-            width: 100%;
-            margin: 0;
-            transform: scale(1);
-            transform-origin: top left;
-            }
-            .no-print {
-            display: none !important;
-            }
-            .only-print {
-            display: block !important;
-            }
-            }
-            @media (max-width: 40rem) {
-            .header {
-            flex-direction: column;
-            text-align: center;
-            gap: 1rem;
-            }
-            .header img {
-            margin-bottom: 1rem;
-            }
-            .education-grid {
-            flex-direction: column;
-            }
-            .education-grid .edu-item+.edu-item {
-            border-left: none;
-            border-top: 0.05rem solid #eee;
-            padding-left: 0;
-            padding-top: 1rem;
-            margin-top: 1rem;
-            }
-            .job-entry {
-            flex-direction: column;
-            align-items: flex-start;
-            }
-            .container {
-            width: 95%;
-            padding: 1rem;
-            margin: 1rem auto;
-            }
-            h1 {
-            font-size: 1.5rem;
-            }
-            body {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            }
-            .section {
-            margin-bottom: 1.25rem;
-            }
-            .header img {
-            width: 8rem;
-            }
-            .header div[style*="flex; flex-wrap"] {
-            justify-content: center;
-            gap: 12px;
-            }
-            .header div[style*="width: 90px"] {
-            width: 75px;
-            padding: 6px;
-            }
-            p, li {
-            max-width: 70ch;
-            }
-            button {
-            width: 100%;
-            margin-bottom: 10px;
-            font-size: 1em;
-            }
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="bubble header">
-                <img src="assets/anton.jpg" alt="Anton Grachev Photo">
-                <div>
-                    <h1>Anton Grachev</h1>
-                    <p style="font-weight: bold; letter-spacing: 1px; text-transform: uppercase;">Backend Systems Engineer</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; margin-bottom: 24px;">
-                        <div style="width: 90px; text-align: center; border: 1px solid #ddd; border-radius: 12px; padding: 10px;">
-                            <img src="assets/python.png" alt="Python" title="Python" style="height: 56px; width: 56px; border-radius: 50%; object-fit: cover;">
-                            <div style="margin-top: 8px; font-size: 0.9em;">Python</div>
-                        </div>
-                        <div style="width: 90px; text-align: center; border: 1px solid #ddd; border-radius: 12px; padding: 10px;">
-                            <img src="assets/cpp.png" alt="C++" title="C++" style="height: 56px; width: 56px; border-radius: 50%; object-fit: cover;">
-                            <div style="margin-top: 8px; font-size: 0.9em;">C++</div>
-                        </div>
-                        <div style="width: 90px; text-align: center; border: 1px solid #ddd; border-radius: 12px; padding: 10px;">
-                            <img src="assets/golang.png" alt="Go" title="Go" style="height: 56px; width: 56px; border-radius: 50%; object-fit: cover;">
-                            <div style="margin-top: 8px; font-size: 0.9em;">Go</div>
-                        </div>
-                        <div style="width: 90px; text-align: center; border: 1px solid #ddd; border-radius: 12px; padding: 10px;">
-                            <img src="assets/java.png" alt="Java" title="Java" style="height: 56px; width: 56px; border-radius: 50%; object-fit: cover;">
-                            <div style="margin-top: 8px; font-size: 0.9em;">Java</div>
-                        </div>
-                    </div>
-                    <p> 📧 <a href="mailto:anton@grachev.us">anton@grachev.us</a> | <a href="https://www.linkedin.com/in/anton-grachev" target="_blank">LinkedIn</a> | <a href="https://github.com/ant0n-grachev" target="_blank">GitHub</a>
-                    </p>
-                    <p>📍 Madison, WI</p>
-                </div>
-                <div id="objective">
-                    <h2>🎯 Objective</h2>
-                    <p>I am a fast-learning Software Engineer and Computer Science Student with strong fundamentals in backend development and machine learning, looking to apply my skills in scalable systems and intelligent product design through impactful internships and research roles. </p>
-                </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anton Grachev</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="assets/icon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/icon.ico" />
+
+    <meta
+      name="description"
+      content="Anton Grachev — Backend Systems Engineer. Projects, experience, education, and recommendation letters."
+    />
+
+    <style>
+      /* ---------- Base / Theme ---------- */
+      :root {
+        --bg: #b6000d;
+        --text: #222;
+        --muted: #555;
+        --card: #fff;
+        --border: #e7e7e7;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        --link: #0b66c3;
+        --link-hover: #084a8c;
+
+        --radius-lg: 18px;
+        --radius-md: 12px;
+
+        --maxw: 960px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 100%;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+          "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--text);
+        background: var(--bg);
+        font-size: 1rem;
+        line-height: 1.55;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      a {
+        color: var(--link);
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: var(--link-hover);
+        text-decoration: underline;
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid #ddd;
+        margin: 1.25rem 0;
+      }
+
+      /* ---------- Layout ---------- */
+      .container {
+        width: min(92%, var(--maxw));
+        margin: 2rem auto;
+      }
+
+      .bubble {
+        background: var(--card);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border);
+        padding: 1.5rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .section {
+        margin-bottom: 1.25rem;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(1.6rem, 2.2vw, 2.1rem);
+        line-height: 1.15;
+      }
+
+      h2 {
+        margin: 0 0 0.75rem;
+        padding-bottom: 0.35rem;
+        border-bottom: 0.2rem solid #eee;
+        font-size: 1.25rem;
+      }
+
+      h3 {
+        margin: 0.75rem 0 0.25rem;
+        font-size: 1.05rem;
+      }
+
+      p {
+        margin: 0.35rem 0 0.6rem;
+        color: var(--text);
+      }
+
+      ul {
+        margin: 0.35rem 0 0.75rem;
+        padding-left: 1.25rem;
+      }
+
+      li {
+        margin: 0.3rem 0;
+      }
+
+      /* ---------- Hero (FIXED: objective spans full width) ---------- */
+      .hero {
+        display: grid;
+        grid-template-columns: 12rem 1fr;
+        grid-template-areas:
+          "avatar main"
+          "objective objective";
+        gap: 1.25rem;
+        align-items: start;
+      }
+
+      .avatar {
+        grid-area: avatar;
+        width: 12rem;
+        aspect-ratio: 1 / 1;
+        border-radius: 999px;
+        object-fit: cover;
+        border: 1px solid #eee;
+      }
+
+      .hero-main {
+        grid-area: main;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+
+      .subtitle {
+        margin: 0.35rem 0 0.85rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-size: 0.95rem;
+      }
+
+      .meta-line {
+        margin-top: 0.25rem;
+      }
+
+      .hero-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+      }
+
+      /* Skill cards */
+      .skills-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        margin: 0.9rem 0 0.25rem;
+      }
+
+      .skill-card {
+        width: 92px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 14px;
+        padding: 10px;
+        background: #fff;
+      }
+
+      .skill-card img {
+        height: 56px;
+        width: 56px;
+        border-radius: 999px;
+        object-fit: cover;
+        margin: 0 auto;
+      }
+
+      .skill-card span {
+        display: block;
+        margin-top: 8px;
+        font-size: 0.9em;
+        color: #333;
+      }
+
+      /* Objective spans full width */
+      .objective {
+        grid-area: objective;
+        margin-top: 0.75rem;
+      }
+
+      .objective p {
+        max-width: none; /* IMPORTANT: allows the text to use full width */
+        color: var(--text);
+      }
+
+      /* ---------- Logos / Job Entries ---------- */
+      .logo-row {
+        margin: 0.25rem 0 0.5rem;
+      }
+
+      .edu-logo {
+        height: 3rem;
+        width: auto;
+      }
+
+      .job-entry {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 0.35rem;
+      }
+
+      .job-entry span {
+        font-weight: 400;
+        font-style: italic;
+      }
+
+      /* ---------- Education Grid ---------- */
+      .education-grid {
+        display: flex;
+        gap: 1.5rem;
+        align-items: stretch;
+        margin-top: 0.5rem;
+      }
+
+      .edu-item {
+        flex: 1;
+        min-width: 260px;
+      }
+
+      .edu-item + .edu-item {
+        border-left: 1px solid #eee;
+        padding-left: 1rem;
+      }
+
+      /* ---------- Projects ---------- */
+      .project {
+        margin-top: 0.75rem;
+      }
+
+      .project .lead {
+        margin: 0.25rem 0 0.5rem;
+      }
+
+      .tech-line {
+        margin-top: 0.25rem;
+      }
+
+      /* ---------- Buttons / Links ---------- */
+      .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 0.75rem;
+      }
+
+      .btn-link {
+        display: inline-block;
+        padding: 12px 18px;
+        background-color: #1e355e;
+        color: #fff !important;
+        border-radius: 10px;
+        font-weight: 700;
+        text-decoration: none !important;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .btn-link:hover {
+        filter: brightness(1.05);
+      }
+
+      .download-row {
+        text-align: right;
+        margin-top: 2rem;
+      }
+
+      .download-row a {
+        text-decoration: underline;
+        font-size: 0.95rem;
+      }
+
+      /* ---------- Print ---------- */
+      .no-print {
+        display: block;
+      }
+
+      .only-print {
+        display: none;
+      }
+
+      @media print {
+        @page {
+          size: letter portrait;
+          margin: 0.5in;
+        }
+
+        body {
+          background: #fff;
+        }
+
+        .container {
+          width: 100%;
+          margin: 0;
+        }
+
+        .bubble {
+          box-shadow: none;
+          border: 1px solid #ddd;
+          break-inside: avoid;
+        }
+
+        .no-print {
+          display: none !important;
+        }
+
+        .only-print {
+          display: block !important;
+        }
+
+        a {
+          color: #000;
+          text-decoration: none;
+        }
+      }
+
+      /* ---------- Mobile ---------- */
+      @media (max-width: 40rem) {
+        .container {
+          width: 100%;
+          padding: 0.75rem;
+          margin: 0.75rem auto;
+        }
+
+        .bubble {
+          padding: 1.1rem;
+          border-radius: 16px;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "avatar"
+            "main"
+            "objective";
+          text-align: center;
+          justify-items: center;
+        }
+
+        .avatar {
+          width: 8rem;
+        }
+
+        .skills-row {
+          justify-content: center;
+        }
+
+        .education-grid {
+          flex-direction: column;
+        }
+
+        .edu-item + .edu-item {
+          border-left: none;
+          border-top: 1px solid #eee;
+          padding-left: 0;
+          padding-top: 1rem;
+          margin-top: 1rem;
+        }
+
+        .job-entry {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.15rem;
+        }
+
+        p,
+        li {
+          max-width: 70ch;
+        }
+
+        .btn-link {
+          width: 100%;
+          text-align: center;
+        }
+
+        .download-row {
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="container">
+      <!-- HERO -->
+      <section class="bubble hero" aria-label="Header">
+        <img
+          class="avatar"
+          src="assets/anton.jpg"
+          alt="Anton Grachev headshot"
+        />
+
+        <div class="hero-main">
+          <div>
+            <h1>Anton Grachev</h1>
+            <p class="subtitle">Backend Systems Engineer</p>
+          </div>
+
+          <div class="skills-row" aria-label="Core skills">
+            <div class="skill-card" title="Python">
+              <img src="assets/python.png" alt="Python" />
+              <span>Python</span>
             </div>
-            <div class="bubble section">
-                <h2>💼 Professional Experience</h2>
-                <div>
-                    <a href="https://www.avito.ru" target="_blank">
-                    <img src="assets/avito.svg" alt="Avito Logo" class="edu-logo">
-                    </a>
-                </div>
-                <div class="job-entry">
-                    <h3> Backend Engineer Intern</h3>
-                    <span>June 2024 - September 2024</span>
-                </div>
-                <p>
-                    <strong>Avito.ru</strong> (Remote)
-                </p>
-                <p>
-                    <a href="https://www.similarweb.com/top-websites/e-commerce-and-shopping/classifieds/" target="_blank" class="external">Avito is the world’s #1 classifieds platform, with over 150M active listings and more than 360M monthly visits.</a>
-                </p>
-                <ul>
-                    <li>Developed production-grade backend APIs in Golang used by 20M+ daily users.</li>
-                    <li>Built core features for company's first Automated Phone Buyback Station (APBS).</li>
-                    <li>Utilized Docker, Kubernetes, and GitLab CI/CD to manage 50+ microservices in a scalable architecture.</li>
-                    <li>Engaged in Scrum sprints and cross-functional teamwork with 10+ Senior Engineers.</li>
-                    <li>Received a formal <a href="letters/avito.pdf" target="_blank">recommendation letter</a> for high-impact contributions and reliability.</li>
-                </ul>
-                <hr style="border: none; border-top: 1px solid #ddd; margin: 1.5rem 0;">
-                <div>
-                    <a href="https://www.ucsc.edu" target="_blank">
-                    <img src="assets/ucsc.png" alt="UCSC Logo" class="edu-logo">
-                    </a>
-                </div>
-                <div class="job-entry">
-                    <h3>IT Specialist</h3>
-                    <span>September 2024 - June 2025</span>
-                </div>
-                <p>
-                    <strong>UCSC, IT Services</strong> (Santa Cruz, CA)
-                </p>
-                <ul>
-                    <li>Resolved 200+ ServiceNow tickets with a 98% satisfaction rating.</li>
-                    <li>Managed AV systems across 15+ campus buildings.</li>
-                </ul>
-                <hr style="border: none; border-top: 1px solid #ddd; margin: 1.5rem 0;">
-                <div>
-                    <a href="https://www.wi.lawyer/" target="_blank">
-                    <img src="assets/clsc.png" alt="CLSC Logo" class="edu-logo">
-                    </a>
-                </div>
-                <div class="job-entry">
-                    <h3>Software & Systems Engineer</h3>
-                    <span>September 2025 - Present</span>
-                </div>
-                <p>
-                    <strong>Community Law S.C.</strong> (Madison, WI)
-                </p>
-                <ul>
-                    <li>Develop internal software to automate legal and administrative workflows.</li>
-                    <li>Manage and troubleshoot enterprise IT systems, including workstations, servers, and network infrastructure.</li>
-                </ul>
+            <div class="skill-card" title="C++">
+              <img src="assets/cpp.png" alt="C++" />
+              <span>C++</span>
             </div>
-            <div class="bubble section">
-                <h2>🪖 Military Experience</h2>
-                <div>
-                    <a href="https://www.115fw.ang.af.mil/" target="_blank">
-                    <img src="assets/ang.jpg" alt="ANG Logo" class="edu-logo">
-                    </a>
-                </div>
-                <div class="job-entry">
-                    <h3>Cyber Defense Operations</h3>
-                    <span>November 2025 - Present</span>
-                </div>
-                <p><strong>Wisconsin Air National Guard</strong> (Madison, WI)</p>
-                <ul>
-                    <li> Support IT systems and network operations.</li>
-                    <li>Assist with cybersecurity and access control</li>
-                </ul>
+            <div class="skill-card" title="Go">
+              <img src="assets/golang.png" alt="Go" />
+              <span>Go</span>
             </div>
-            <div class="bubble section">
-                <h2>🧰 Other Experience</h2>
-                <div>
-                    <a href="https://www.idtech.com/" target="_blank">
-                    <img src="assets/idtech.png" alt="iDTech Logo" class="edu-logo">
-                    </a>
-                </div>
-                <div class="job-entry">
-                    <h3>On-Campus Instructor</h3>
-                    <span>June 2025 - July 2025</span>
-                </div>
-                <p>
-                    <strong>iD Tech Camps</strong> (Stanford University, CA)
-                </p>
-                <ul>
-                    <li>Taught Python, AI/ML, and Java to students aged 13-17.</li>
-                    <li>Guided hands-on projects in a class of ~12.</li>
-                </ul>
-                <hr style="border: none; border-top: 1px solid #ddd; margin: 1.5rem 0;">
-                <div>
-                    <a href="https://engineering.ucsc.edu/" target="_blank">
-                    <img src="assets/baskin.svg" alt="Baskin Logo" class="edu-logo">
-                    </a>
-                </div>
-                <div class="job-entry">
-                    <h3>Applied Discrete Math Tutor</h3>
-                    <span>March 2025 - June 2025</span>
-                </div>
-                <p>
-                    <strong>UCSC Baskin Engineering</strong> (Santa Cruz, CA)
-                </p>
-                <ul>
-                    <li>Led sessions for 20+ students, boosting exams scores by 31%.</li>
-                    <li>Improved class through feedback and assessments updates.</li>
-                </ul>
+            <div class="skill-card" title="Java">
+              <img src="assets/java.png" alt="Java" />
+              <span>Java</span>
             </div>
-            <div class="bubble section" id="education">
-                <h2>🎓 Education</h2>
-                <div class="education-grid">
-                    <div class="edu-item">
-                        <a href="https://www.wisc.edu" target="_blank">
-                        <img src="assets/uw.svg" alt="UW-Madison Logo" class="edu-logo">
-                        </a>
-                        <h3>University of Wisconsin-Madison</h3>
-                        <p>
-                            <strong>B.S. in Computer Science</strong>, 2025 - Present
-                        </p>
-                        <ul>
-                            <li>Transfer Student</li>
-                        </ul>
-                    </div>
-                    <div class="edu-item">
-                        <a href="https://www.ucsc.edu" target="_blank">
-                        <img src="assets/ucsc.png" alt="UCSC Logo" class="edu-logo">
-                        </a>
-                        <h3>University of California, Santa Cruz</h3>
-                        <p>
-                            <strong>B.S. in Computer Science</strong>, 2024 - 2025
-                        </p>
-                        <ul>
-                            <li>GPA: 3.9 + Dean's Honor List (2x)</li>
-                            <li>
-                                Full Stack Engineer @ UCSC Rocket Team: 
-                                <ul>
-                                    <li>Embedded firmware (C/C++)</li>
-                                    <li>Telemetry systems (HTML/JS)</li>
-                                </ul>
-                            </li>
-                            <li>Key coursework: Assembly, C, ML</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="bubble section">
-                <h2>🛠️ Projects</h2>
-                <h3>🏋️ RecWell Live</h3>
-                Real-time dashboard predicting intraday gyms occupancy at UW–Madison
-                <ul>
-                    <li>Live occupancy visualization by facility</li>
-                    <li>Intraday usage prediction powered by XGBoost</li>
-                    <li>Mobile-first, responsive UI</li>
-                    <li>Visibility into peak and off-peak usage times</li>
-                </ul>
-                <strong>Tech:</strong> React, TypeScript, Vite, Material UI, XGBoost, Python <br>
-                🔗 <a href="https://recwell-live.netlify.app/" target="_blank">Live Site</a> •
-                <a href="https://github.com/ant0n-grachev/RecWell-Live" target="_blank">GitHub Repo</a>
-                <hr style="border: none; border-top: 1px solid #ddd; margin: 1.5rem 0;">
-                <h3>🚲 Madison BCycle Router</h3>
-                Single-page app for planning seamless BCycle trips in Madison
-                <ul>
-                    <li>Location-aware start</li>
-                    <li>Address/lat-long destinations</li>
-                    <li>Live station availability from GBFS</li>
-                    <li>Responsive UI with Google Maps handoff</li>
-                </ul>
-                <strong>Tech:</strong> React 19, TypeScript, Fetch API, Custom CSS <br>
-                🔗 <a href="https://bcyclerouter.app/" target="_blank">Live Site</a> • <a href="https://github.com/ant0n-grachev/BCycle-Router" target="_blank">GitHub Repo</a>
-                <hr style="border: none; border-top: 1px solid #ddd; margin: 1.5rem 0;">
-                <h3>🎨 Christy's Portfolio</h3>
-                Custom portfolio site built for artists to showcase drawings and videos<
-                <ul>
-                    <li>Media-rich posts with image and video+cover image support</li>
-                    <li>Admin theme editor: background, header, colors, footer text, and more</li>
-                    <li>Pinned label support, responsive UI, and automatic file cleanup</li>
-                    <li>Real user, real deployment</li>
-                </ul>
-                <strong>Tech:</strong> Django, Bootstrap 5, PostgreSQL, Azure Blob Storage, WhiteNoise, Gunicorn <br>
-                🔗 <a href="https://portfolio.christypan.me" target="_blank">Live Site</a> • <a href="https://github.com/ant0n-grachev/christy_portfolio" target="_blank">GitHub Repo</a>
-                <hr style="border: none; border-top: 1px solid #ddd; margin: 1.5rem 0;">
-                <h3>🔬 Gym Occupancy Predictor (Research)</h3>
-                Forecasts low-traffic hours using real data & ML
-                <ul>
-                    <li>Scrapes occupancy every 15 mins</li>
-                    <li>Logs historical trends</li>
-                    <li>Trains a polynomial regression model</li>
-                    <li>Built from scratch, no ML libraries involved, only raw math</li>
-                </ul>
-                <strong>Tech:</strong> Python, BeautifulSoup, NumPy, Matplotlib, Gradient Descent with Regularization <br> 🔗 <a href="https://github.com/ant0n-grachev/occupancy-tracker" target="_blank">GitHub Repo</a>
-            </div>
-            <div class="bubble section">
-                <h2>📜 Certifications</h2>
-                <ul>
-                    <li>
-                        <strong>
-                        <a href="https://coursera.org/share/499bc5166529d559dbefbec0e31b7d7c" target="_blank" class="external"> Stanford: Supervised Machine Learning (2025) </a>
-                        </strong>
-                        <br> Built regression and classification models using Python, NumPy, and scikit-learn. <br> Applied gradient descent and regularization.
-                    </li>
-                    <li>
-                        <strong>After-School Programming Cources Diploma (2022)</strong>
-                        <br> Four-year track in C++, Python, and Java. <br> Final project: Django-based social data analytics platform (received top evaluation grade).
-                    </li>
-                </ul>
-            </div>
-            <div class="bubble section">
-                <h2>🧠 Skills</h2>
-                <ul>
-                    <li>
-                        <strong>Programming Languages:</strong> Python, C, C++, C#, Go, Java
-                    </li>
-                    <li>
-                        <strong>Tools:</strong> Django, PostgreSQL, Docker, Git, Kubernetes
-                    </li>
-                    <li>
-                        <strong>Development Areas:</strong> Machine Learning, Backend Development, Data Analysis, API Design
-                    </li>
-                    <li>
-                        <strong>Soft Skills:</strong> Scrum, Leadership, Teamwork
-                    </li>
-                    <li>
-                        <strong>Spoken Languages:</strong> English (Native), Russian (Native)
-                    </li>
-                </ul>
-            </div>
-            <div class="bubble section">
-                <p class="only-print">Recommendation letters are available for download at <a href="https://anton.grachev.us" target="_blank">anton.grachev.us</a>. </p>
-                <div class="no-print">
-                    <h2>📝 Recommendation Letters</h2>
-                    <button onclick="window.open('letters/avito.pdf', '_blank')" style="padding: 12px 24px; background-color: #1e355e; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1.1em; font-weight: bold;"> Avito Tech LLC </button>
-                    <button onclick="window.open('letters/ucsc-its.pdf', '_blank')" style="padding: 12px 24px; background-color: #1e355e; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1.1em; font-weight: bold;"> UCSC ITS </button>
-                    <button onclick="window.open('letters/ibessaine.pdf', '_blank')" style="padding: 12px 24px; background-color: #1e355e; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1.1em; font-weight: bold;"> UCSC Faculty </button>
-                </div>
-                <div class="no-print" style="text-align: right; margin: 40px 0 0;">
-                    <a href="Anton_Grachev_Resume.pdf" target="_blank" style="color: #0077cc; text-decoration: underline; font-size: 0.95em;"> Download Resume as PDF </a>
-                </div>
-            </div>
+          </div>
+
+          <div class="hero-links">
+            <span>📧 <a href="mailto:anton@grachev.us">anton@grachev.us</a></span>
+            <span>|</span>
+            <a
+              href="https://www.linkedin.com/in/anton-grachev"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn</a
+            >
+            <span>|</span>
+            <a
+              href="https://github.com/ant0n-grachev"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+          </div>
+
+          <p class="meta-line">📍 Madison, WI</p>
         </div>
-        <script>
-            function togglePrintClasses(showPrint) {
-            	document.querySelectorAll('.no-print').forEach(el => {
-            		el.style.display = showPrint ? 'none' : '';
-            	});
-            	document.querySelectorAll('.only-print').forEach(el => {
-            		el.style.display = showPrint ? '' : 'none';
-            	});
-            }
-            
-            function handleBeforePrint() {
-            	togglePrintClasses(true);
-            }
-            
-            function handleAfterPrint() {
-            	togglePrintClasses(false);
-            }
-            window.addEventListener('beforeprint', handleBeforePrint);
-            window.addEventListener('afterprint', handleAfterPrint);
-            
-            function printResume() {
-            	window.print();
-            }
-        </script>
-    </body>
+
+        <!-- Objective now spans the full width of the hero card -->
+        <div class="objective" id="objective">
+          <h2>🎯 Objective</h2>
+          <p>
+            I am a fast-learning Software Engineer and Computer Science Student
+            with strong fundamentals in backend development and machine learning,
+            looking to apply my skills in scalable systems and intelligent
+            product design through impactful internships and research roles.
+          </p>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section class="bubble section" aria-label="Professional Experience">
+        <h2>💼 Professional Experience</h2>
+
+        <div class="logo-row">
+          <a
+            href="https://www.avito.ru"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="assets/avito.svg" alt="Avito Logo" class="edu-logo" />
+          </a>
+        </div>
+
+        <div class="job-entry">
+          <h3>Backend Engineer Intern</h3>
+          <span>June 2024 – September 2024</span>
+        </div>
+        <p><strong>Avito.ru</strong> (Remote)</p>
+        <p class="lead">
+          <a
+            href="https://www.similarweb.com/top-websites/e-commerce-and-shopping/classifieds/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Avito is the world's #1 classifieds platform, with over 150M active listings and more than 360M monthly visits.</a
+          >
+        </p>
+        <ul>
+          <li>
+            Developed production-grade backend APIs in Golang used by 20M+ daily
+            users.
+          </li>
+          <li>
+            Built core features for the company’s first Automated Phone Buyback
+            Station (APBS).
+          </li>
+          <li>
+            Used Docker, Kubernetes, and GitLab CI/CD across 50+ microservices.
+          </li>
+          <li>Worked in Scrum sprints with 10+ senior engineers across teams.</li>
+          <li>
+            Received a formal
+            <a
+              href="letters/avito.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >recommendation letter</a
+            >
+            for high-impact contributions and reliability.
+          </li>
+        </ul>
+
+        <hr />
+
+        <div class="logo-row">
+          <a
+            href="https://www.ucsc.edu"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="assets/ucsc.png" alt="UCSC Logo" class="edu-logo" />
+          </a>
+        </div>
+
+        <div class="job-entry">
+          <h3>IT Specialist</h3>
+          <span>September 2024 – June 2025</span>
+        </div>
+        <p><strong>UCSC, IT Services</strong> (Santa Cruz, CA)</p>
+        <ul>
+          <li>Resolved 200+ ServiceNow tickets with a 98% satisfaction rating.</li>
+          <li>Managed AV systems across 15+ campus buildings.</li>
+        </ul>
+
+        <hr />
+
+        <div class="logo-row">
+          <a
+            href="https://www.wi.lawyer/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="assets/clsc.png" alt="CLSC Logo" class="edu-logo" />
+          </a>
+        </div>
+
+        <div class="job-entry">
+          <h3>Software &amp; Systems Engineer</h3>
+          <span>September 2025 – Present</span>
+        </div>
+        <p><strong>Community Law S.C.</strong> (Madison, WI)</p>
+        <ul>
+          <li>Build internal software to automate legal and administrative workflows.</li>
+          <li>
+            Manage and troubleshoot enterprise IT systems (workstations, servers,
+            networking).
+          </li>
+        </ul>
+      </section>
+
+      <!-- MILITARY -->
+      <section class="bubble section" aria-label="Military Experience">
+        <h2>🪖 Military Experience</h2>
+
+        <div class="logo-row">
+          <a
+            href="https://www.115fw.ang.af.mil/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="assets/ang.jpg" alt="ANG Logo" class="edu-logo" />
+          </a>
+        </div>
+
+        <div class="job-entry">
+          <h3>Cyber Defense Operations</h3>
+          <span>November 2025 – Present</span>
+        </div>
+        <p><strong>Wisconsin Air National Guard</strong> (Madison, WI)</p>
+        <ul>
+          <li>Support IT systems and network operations.</li>
+          <li>Assist with cybersecurity and access control.</li>
+        </ul>
+      </section>
+
+      <!-- OTHER EXPERIENCE -->
+      <section class="bubble section" aria-label="Other Experience">
+        <h2>🧰 Other Experience</h2>
+
+        <div class="logo-row">
+          <a
+            href="https://www.idtech.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="assets/idtech.png" alt="iD Tech Logo" class="edu-logo" />
+          </a>
+        </div>
+
+        <div class="job-entry">
+          <h3>On-Campus Instructor</h3>
+          <span>June 2025 – July 2025</span>
+        </div>
+        <p><strong>iD Tech Camps</strong> (Stanford University, CA)</p>
+        <ul>
+          <li>Taught Python, AI/ML, and Java to students aged 13–17.</li>
+          <li>Guided hands-on projects in a class of ~12.</li>
+        </ul>
+
+        <hr />
+
+        <div class="logo-row">
+          <a
+            href="https://engineering.ucsc.edu/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="assets/baskin.svg"
+              alt="Baskin Engineering Logo"
+              class="edu-logo"
+            />
+          </a>
+        </div>
+
+        <div class="job-entry">
+          <h3>Applied Discrete Math Tutor</h3>
+          <span>March 2025 – June 2025</span>
+        </div>
+        <p><strong>UCSC Baskin Engineering</strong> (Santa Cruz, CA)</p>
+        <ul>
+          <li>Led sessions for 20+ students, boosting exam scores by 31%.</li>
+          <li>Improved class outcomes through feedback and assessment updates.</li>
+        </ul>
+      </section>
+
+      <!-- EDUCATION -->
+      <section class="bubble section" id="education" aria-label="Education">
+        <h2>🎓 Education</h2>
+
+        <div class="education-grid">
+          <div class="edu-item">
+            <a
+              href="https://www.wisc.edu"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="assets/uw.svg" alt="UW–Madison Logo" class="edu-logo" />
+            </a>
+            <h3>University of Wisconsin–Madison</h3>
+            <p><strong>B.S. in Computer Science</strong>, 2025 – Present</p>
+            <ul>
+              <li>Transfer Student</li>
+            </ul>
+          </div>
+
+          <div class="edu-item">
+            <a
+              href="https://www.ucsc.edu"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="assets/ucsc.png" alt="UCSC Logo" class="edu-logo" />
+            </a>
+            <h3>University of California, Santa Cruz</h3>
+            <p><strong>B.S. in Computer Science</strong>, 2024 – 2025</p>
+            <ul>
+              <li>GPA: 3.9 + Dean’s Honor List (2×)</li>
+              <li>
+                Full Stack Engineer @ UCSC Rocket Team:
+                <ul>
+                  <li>Embedded firmware (C/C++)</li>
+                  <li>Telemetry systems (HTML/JS)</li>
+                </ul>
+              </li>
+              <li>Key coursework: Assembly, C, ML</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="bubble section" aria-label="Projects">
+        <h2>🛠️ Projects</h2>
+
+        <article class="project">
+          <h3>🏋️ RecWell Live</h3>
+          <p class="lead">
+            Real-time dashboard predicting intraday gym occupancy at UW–Madison
+          </p>
+          <ul>
+            <li>Live occupancy visualization by facility</li>
+            <li>Intraday usage prediction powered by XGBoost</li>
+            <li>Mobile-first, responsive UI</li>
+            <li>Visibility into peak and off-peak usage times</li>
+          </ul>
+          <p class="tech-line">
+            <strong>Tech:</strong> React, TypeScript, Vite, Material UI, XGBoost,
+            Python
+          </p>
+          <p>
+            🔗
+            <a
+              href="https://recwell-live.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Live Site</a
+            >
+            •
+            <a
+              href="https://github.com/ant0n-grachev/RecWell-Live"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub Repo</a
+            >
+          </p>
+        </article>
+
+        <hr />
+
+        <article class="project">
+          <h3>🚲 Madison BCycle Router</h3>
+          <p class="lead">
+            Single-page app for planning seamless BCycle trips in Madison
+          </p>
+          <ul>
+            <li>Location-aware start</li>
+            <li>Address/lat-long destinations</li>
+            <li>Live station availability from GBFS</li>
+            <li>Responsive UI with Google Maps handoff</li>
+          </ul>
+          <p class="tech-line">
+            <strong>Tech:</strong> React 19, TypeScript, Fetch API, Custom CSS
+          </p>
+          <p>
+            🔗
+            <a
+              href="https://bcyclerouter.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Live Site</a
+            >
+            •
+            <a
+              href="https://github.com/ant0n-grachev/BCycle-Router"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub Repo</a
+            >
+          </p>
+        </article>
+
+        <hr />
+
+        <article class="project">
+          <h3>🎨 Christy’s Portfolio</h3>
+          <p class="lead">
+            Custom portfolio site built for artists to showcase drawings and
+            videos
+          </p>
+          <ul>
+            <li>Media-rich posts with image and video + cover image support</li>
+            <li>Admin theme editor: background, header, colors, footer text, and more</li>
+            <li>Pinned label support, responsive UI, and automatic file cleanup</li>
+            <li>Real user, real deployment</li>
+          </ul>
+          <p class="tech-line">
+            <strong>Tech:</strong> Django, Bootstrap 5, PostgreSQL, Azure Blob Storage, WhiteNoise, Gunicorn
+          </p>
+          <p>
+            🔗
+            <a
+              href="https://portfolio.christypan.me"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Live Site</a
+            >
+            •
+            <a
+              href="https://github.com/ant0n-grachev/christy_portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub Repo</a
+            >
+          </p>
+        </article>
+
+        <hr />
+
+        <article class="project">
+          <h3>🔬 Gym Occupancy Predictor (Research)</h3>
+          <p class="lead">Forecasts low-traffic hours using real data &amp; ML</p>
+          <ul>
+            <li>Scrapes occupancy every 15 minutes</li>
+            <li>Logs historical trends</li>
+            <li>Trains a polynomial regression model</li>
+            <li>Built from scratch (raw math, no ML libraries)</li>
+          </ul>
+          <p class="tech-line">
+            <strong>Tech:</strong> Python, BeautifulSoup, NumPy, Matplotlib, Gradient Descent with Regularization
+          </p>
+          <p>
+            🔗
+            <a
+              href="https://github.com/ant0n-grachev/occupancy-tracker"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub Repo</a
+            >
+          </p>
+        </article>
+      </section>
+
+      <!-- CERTIFICATIONS -->
+      <section class="bubble section" aria-label="Certifications">
+        <h2>📜 Certifications</h2>
+        <ul>
+          <li>
+            <strong>
+              <a
+                href="https://coursera.org/share/499bc5166529d559dbefbec0e31b7d7c"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Stanford: Supervised Machine Learning (2025)</a
+              >
+            </strong>
+            <br />
+            Built regression and classification models using Python, NumPy, and
+            scikit-learn.
+            <br />
+            Applied gradient descent and regularization.
+          </li>
+          <li>
+            <strong>After-School Programming Courses Diploma (2022)</strong>
+            <br />
+            Four-year track in C++, Python, and Java.
+            <br />
+            Final project: Django-based social data analytics platform (top
+            evaluation grade).
+          </li>
+        </ul>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="bubble section" aria-label="Skills">
+        <h2>🧠 Skills</h2>
+        <ul>
+          <li><strong>Programming Languages:</strong> Python, C, C++, C#, Go, Java</li>
+          <li><strong>Tools:</strong> Django, PostgreSQL, Docker, Git, Kubernetes</li>
+          <li><strong>Development Areas:</strong> Machine Learning, Backend Development, Data Analysis, API Design</li>
+          <li><strong>Soft Skills:</strong> Scrum, Leadership, Teamwork</li>
+          <li><strong>Spoken Languages:</strong> English (Native), Russian (Native)</li>
+        </ul>
+      </section>
+
+      <!-- LETTERS -->
+      <section class="bubble section" aria-label="Recommendation Letters">
+        <p class="only-print">
+          Recommendation letters are available for download at
+          <a
+            href="https://anton.grachev.us"
+            target="_blank"
+            rel="noopener noreferrer"
+            >anton.grachev.us</a
+          >.
+        </p>
+
+        <div class="no-print">
+          <h2>📝 Recommendation Letters</h2>
+          <div class="btn-row">
+            <a
+              class="btn-link"
+              href="letters/avito.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Avito Tech LLC</a
+            >
+            <a
+              class="btn-link"
+              href="letters/ucsc-its.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >UCSC ITS</a
+            >
+            <a
+              class="btn-link"
+              href="letters/ibessaine.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >UCSC Faculty</a
+            >
+          </div>
+
+          <div class="download-row">
+            <a
+              href="Anton_Grachev_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Download Resume as PDF
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
